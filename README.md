@@ -3,6 +3,8 @@ GTK MVVM Sample
 
 A little MVVM sample using GTK and Vala
 
+![Screenshot](screenshot.png)
+
 License
 -------
 
