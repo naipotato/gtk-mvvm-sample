@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+
+<template class="StudentItem" parent="GtkListBoxRow">
+  <property name="activatable">False</property>
+  <property name="can-focus">False</property>
+  <signal name="notify::first-name" handler="on_property_changed" />
+  <signal name="notify::last-name" handler="on_property_changed" />
+
+  <child>
+    <object class="GtkBox">
+      <property name="visible">True</property>
+      <property name="spacing">10</property>
+
+      <child>
+        <object class="GtkEntry">
+          <property name="visible">True</property>
+          <property name="text" bind-source="StudentItem" bind-property="first-name" bind-flags="bidirectional" />
+        </object>
+      </child>
+
+      <child>
+        <object class="GtkEntry">
+          <property name="visible">True</property>
+          <property name="text" bind-source="StudentItem" bind-property="last-name" bind-flags="bidirectional" />
+        </object>
+      </child>
+
+      <child>
+        <object class="GtkLabel">
+          <property name="visible">True</property>
+          <property name="label" bind-source="StudentItem" bind-property="full-name" />
+        </object>
+      </child>
+
+    </object>
+  </child>
+
+</template>
+
+</interface>

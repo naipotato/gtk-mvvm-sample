@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<interface>
+
+<template class="MainWindow" parent="GtkApplicationWindow">
+  <property name="default_width">800</property>
+  <property name="default_height">600</property>
+
+  <child>
+    <object class="StudentView">
+      <property name="visible">True</property>
+    </object>
+  </child>
+
+</template>
+
+</interface>

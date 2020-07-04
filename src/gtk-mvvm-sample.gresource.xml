@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gresources>
+
+  <gresource prefix="/com/github/nahuelwexd/gtk-mvvm-sample">
+    <file alias="student-view.ui">views/student-view.ui</file>
+    <file alias="student-item.ui">widgets/student-item.ui</file>
+    <file alias="main-window.ui">windows/main-window.ui</file>
+  </gresource>
+
+</gresources>
