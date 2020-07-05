@@ -17,10 +17,14 @@ class StudentViewModel : Object {
     }
     public void load_more_students () {
 
-        // Vala lacks a way to clone objects, so converting the current
-        // collection into an array in order to have two differents
-        // collections with the same contents
+        // Vala lacks a way to just clone objects, so this operation, which
+        // could have been just 1 line of code, needs to recreate each object
+        // again
 
-        this.students.add_all_array (this.students.to_array ());
+        var students = this.students;
+
+        students.add (new Student () { first_name = "Mark", last_name = "Allain", age = 17 });
+        students.add (new Student () { first_name = "Allen", last_name = "Brown", age = 22 });
+        students.add (new Student () { first_name = "Linda", last_name = "Hamerski", age = 19 });
     }
 }
