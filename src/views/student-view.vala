@@ -19,4 +19,9 @@ class StudentView : Gtk.Box {
 
         return student_item;
     }
+
+    [GtkCallback]
+    private void on_load_more_button_clicked () {
+        this._view_model.load_more_students ();
+    }
 }

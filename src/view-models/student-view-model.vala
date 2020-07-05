@@ -15,4 +15,12 @@ class StudentViewModel : Object {
 
         this.students = students;
     }
+    public void load_more_students () {
+
+        // Vala lacks a way to clone objects, so converting the current
+        // collection into an array in order to have two differents
+        // collections with the same contents
+
+        this.students.add_all_array (this.students.to_array ());
+    }
 }
