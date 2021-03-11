@@ -13,18 +13,16 @@ class GtkMvvmSample.StudentView : Gtk.Widget {
     base.dispose ();
   }
 
-  private Gtk.Widget get_row_from_student (Object item) requires (item is Student) {
-    return new StudentListRow ((Student) item);
-  }
-
   [GtkCallback (name = "load-more-students")]
   private void load_more_students () {
     this._view_model.load_more_students ();
   }
 
   construct {
-    this._view_model = new StudentViewModel ();
-    this._students_list.bind_model (this._view_model.students, this.get_row_from_student);
+    this._students_list.bind_model (this._view_model.students, item => {
+      return_val_if_fail (item is Student, null);
+      return new StudentListRow ((Student) item);
+    });
   }
 
   static construct {

@@ -1,6 +1,7 @@
 class GtkMvvmSample.ObservableList<T> : Gee.ArrayList<T>, ListModel {
-  public ObservableList (T[] array) {
-    base.wrap (array);
+  public ObservableList (T[]? array = null) {
+    if (array != null)
+      base.wrap (array);
   }
 
   protected override bool add (T item) {

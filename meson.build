@@ -16,10 +16,10 @@ add_project_arguments (
   language: 'c',
 )
 
-i18n = import('i18n')
+i18n = import ('i18n')
 
-subdir('data')
-subdir('src')
-subdir('po')
+subdir ('data')
+subdir ('src')
+subdir ('po')
 
-meson.add_install_script('build-aux/meson/postinstall.py')
+meson.add_install_script ('build-aux/meson/postinstall.py')

@@ -39,14 +39,14 @@ gtk_mvvm_sample_deps = [
 
 gnome = import ('gnome')
 
-gtk_mvvm_sample_sources += gnome.compile_resources(
+gtk_mvvm_sample_sources += gnome.compile_resources (
   'gtk_mvvm_sample-resources',
   'gtk_mvvm_sample.gresource.xml',
 
   c_name: 'gtk_mvvm_sample',
 )
 
-executable(
+executable (
   'gtk-mvvm-sample',
   gtk_mvvm_sample_sources,
 
