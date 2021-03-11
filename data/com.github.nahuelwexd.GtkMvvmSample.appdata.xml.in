@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+	<id>com.github.nahuelwexd.GtkMvvmSample.desktop</id>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>Unlicense</project_license>
+
+	<description>
+	</description>
+
+</component>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+
+<template class="GtkMvvmSampleStudentListRow" parent="GtkListBoxRow">
+  <property name="child">
+    <object class="GtkBox">
+      <property name="spacing">10</property>
+
+      <child>
+        <object class="GtkEntry" id="first-name-entry" />
+      </child>
+
+      <child>
+        <object class="GtkEntry" id="last-name-entry" />
+      </child>
+
+      <child>
+        <object class="GtkLabel">
+          <binding name="label">
+            <closure type="gchararray" function="get-full-name">
+
+              <lookup name="first-name" type="GtkMvvmSampleStudent">
+                <lookup name="student">GtkMvvmSampleStudentListRow</lookup>
+              </lookup>
+
+              <lookup name="last-name" type="GtkMvvmSampleStudent">
+                <lookup name="student">GtkMvvmSampleStudentListRow</lookup>
+              </lookup>
+
+            </closure>
+          </binding>
+        </object>
+      </child>
+
+    </object>
+  </property>
+</template>
+
+</interface>

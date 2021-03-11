@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <interface>
 
-<template class="MainWindow" parent="GtkApplicationWindow">
-  <property name="default_width">800</property>
-  <property name="default_height">600</property>
+<template class="GtkMvvmSampleMainWindow" parent="GtkApplicationWindow">
+  <property name="default-height">600</property>
+  <property name="default-width">800</property>
 
-  <child>
-    <object class="StudentView">
-      <property name="visible">True</property>
-    </object>
-  </child>
+  <property name="child">
+    <object class="GtkMvvmSampleStudentView" />
+  </property>
 
 </template>
 

@@ -1,27 +1,33 @@
-[GtkTemplate (ui = "/com/github/nahuelwexd/gtk-mvvm-sample/student-view.ui")]
-class StudentView : Gtk.Box {
+[GtkTemplate (ui = "/com/github/nahuelwexd/GtkMvvmSample/student-view.ui")]
+class GtkMvvmSample.StudentView : Gtk.Widget {
+  private StudentViewModel _view_model = new StudentViewModel ();
 
-    private StudentViewModel _view_model;
-    [GtkChild] private Gtk.ListBox _students_list;
+  [GtkChild (name = "scrolled-window")]
+  private unowned Gtk.ScrolledWindow _scrolled_window;
 
-    construct {
-        this._view_model = new StudentViewModel ();
-        this._students_list.bind_model (this._view_model.students, this.create_student_item);
-    }
+  [GtkChild (name = "students-list")]
+  private unowned Gtk.ListBox _students_list;
 
-    private Gtk.Widget create_student_item (Object item) {
-        var student = (Student) item;
-        var student_item = new StudentItem ();
-        student.bind_property ("first-name", student_item, "first-name",
-            BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE);
-        student.bind_property ("last-name", student_item, "last-name",
-            BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE);
+  protected override void dispose () {
+    this._scrolled_window.unparent ();
+    base.dispose ();
+  }
 
-        return student_item;
-    }
+  private Gtk.Widget get_row_from_student (Object item) requires (item is Student) {
+    return new StudentListRow ((Student) item);
+  }
 
-    [GtkCallback]
-    private void on_load_more_button_clicked () {
-        this._view_model.load_more_students ();
-    }
+  [GtkCallback (name = "load-more-students")]
+  private void load_more_students () {
+    this._view_model.load_more_students ();
+  }
+
+  construct {
+    this._view_model = new StudentViewModel ();
+    this._students_list.bind_model (this._view_model.students, this.get_row_from_student);
+  }
+
+  static construct {
+    set_css_name ("studentview");
+  }
 }

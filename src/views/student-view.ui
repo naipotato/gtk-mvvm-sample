@@ -1,63 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <interface>
 
-<template class="StudentView" parent="GtkBox">
-  <property name="orientation">vertical</property>
-  <property name="margin">30</property>
-  <property name="spacing">30</property>
+<template class="GtkMvvmSampleStudentView" parent="GtkWidget">
+
+  <property name="layout-manager">
+    <object class="GtkBinLayout" />
+  </property>
 
   <child>
-    <object class="GtkBox">
-      <property name="visible">True</property>
+    <object class="GtkScrolledWindow" id="scrolled-window">
+      <property name="hscrollbar-policy">never</property>
 
-      <child>
+      <property name="child">
+        <object class="GtkBox">
+          <property name="orientation">vertical</property>
+          <property name="spacing">30</property>
 
-        <object class="GtkLabel">
-          <property name="visible">True</property>
-          <property name="label">Students</property>
-          <property name="xalign">0</property>
+          <child>
+            <object class="GtkBox">
 
-          <style>
-            <class name="title-1" />
-          </style>
+              <child>
+                <object class="GtkLabel">
+                  <property name="hexpand">yes</property>
+                  <property name="label" translatable="yes">Students</property>
+                  <property name="xalign">0</property>
+
+                  <style>
+                    <class name="title-1" />
+                  </style>
+
+                </object>
+              </child>
+
+              <child>
+                <object class="GtkButton">
+                  <property name="label" translatable="yes">Load more...</property>
+                  <signal name="clicked" handler="load-more-students" />
+                </object>
+              </child>
+
+            </object>
+          </child>
+
+          <child>
+            <object class="GtkListBox" id="students-list">
+              <property name="selection-mode">none</property>
+              <property name="vexpand">yes</property>
+            </object>
+          </child>
 
         </object>
-
-        <packing>
-          <property name="expand">True</property>
-        </packing>
-
-      </child>
-
-      <child>
-        <object class="GtkButton">
-          <property name="visible">True</property>
-          <property name="label">Load more...</property>
-          <signal name="clicked" handler="on_load_more_button_clicked" />
-        </object>
-      </child>
+      </property>
 
     </object>
-  </child>
-
-  <child>
-
-    <object class="GtkScrolledWindow">
-      <property name="visible">True</property>
-
-      <child>
-        <object class="GtkListBox" id="_students_list">
-          <property name="visible">True</property>
-          <property name="selection-mode">none</property>
-        </object>
-      </child>
-
-    </object>
-
-    <packing>
-      <property name="expand">True</property>
-    </packing>
-
   </child>
 
 </template>

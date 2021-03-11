@@ -1,0 +1,5 @@
+data/com.github.nahuelwexd.GtkMvvmSample.desktop.in
+data/com.github.nahuelwexd.GtkMvvmSample.appdata.xml.in
+data/com.github.nahuelwexd.GtkMvvmSample.gschema.xml
+src/views/student-view.ui
+src/app.vala

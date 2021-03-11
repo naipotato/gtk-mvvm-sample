@@ -1,9 +1,8 @@
-[GtkTemplate (ui = "/com/github/nahuelwexd/gtk-mvvm-sample/main-window.ui")]
-class MainWindow : Gtk.ApplicationWindow {
-
-    public MainWindow (App app) {
-        Object (
-            application: app
-        );
-    }
+[GtkTemplate (ui = "/com/github/nahuelwexd/GtkMvvmSample/main-window.ui")]
+class GtkMvvmSample.MainWindow : Gtk.ApplicationWindow {
+  public MainWindow (App app) {
+    Object (
+      application: app
+    );
+  }
 }

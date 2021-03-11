@@ -1,7 +1,25 @@
-project ('gtk-mvvm-sample', 'c', 'vala')
+project (
+  'gtk-mvvm-sample',
+  'vala',
+  'c',
 
-gio_dep = dependency ('gio-2.0')
-gtk_dep = dependency ('gtk+-3.0')
-gee_dep = dependency ('gee-0.8')
+  license: 'Unlicense',
+  meson_version: '>= 0.49.0',
+  default_options: [
+    'warning_level=2',
+  ]
+)
 
-subdir ('src')
+add_project_arguments (
+  '-DGETTEXT_PACKAGE=@0@'.format (meson.project_name ()),
+  
+  language: 'c',
+)
+
+i18n = import('i18n')
+
+subdir('data')
+subdir('src')
+subdir('po')
+
+meson.add_install_script('build-aux/meson/postinstall.py')

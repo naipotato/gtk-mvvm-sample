@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gtk-mvvm-sample">
+
+<schema id="com.github.nahuelwexd.GtkMvvmSample" path="/com/github/nahuelwexd/GtkMvvmSample/">
+</schema>
+
+</schemalist>
